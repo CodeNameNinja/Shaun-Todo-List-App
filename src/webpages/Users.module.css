@@ -1,0 +1,22 @@
+.userlist {
+    border: 1px solid black;
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    justify-content: space-evenly;
+}
+
+.userlist .tr {
+    width: 100%;
+    justify-content: space-evenly;
+}
+
+.userlist .td {
+    width: 200px;
+}
+
+.userlist .tr, .userlist .thead, .userlist .td {
+    justify-content: space-evenly;
+    border: 1px solid purple;
+    text-align: center;
+}

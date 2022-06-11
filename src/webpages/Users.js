@@ -1,57 +1,30 @@
-import React, {useState, useEffect} from 'react';
-import { Link } from 'react-router-dom';
+import React  from 'react';
 
-const Users = (props) => {
+import './Users.module.css'
 
-    const [error, setError] = useState(null);
-    const [isLoaded, setIsLoaded] = useState(false);
-    const [users, setUsers] = useState([]);
+import User from '../components/User';
 
-    useEffect(() => {
-        fetch("http://api.github.com/users")
-            .then(res => res.json())
-            .then (
-                (data) => {
-                    setIsLoaded(true);
-                    setUsers(data);
-                },
-                (error) => {
-                    setIsLoaded(true);
-                    setError(error);
-                }
-            )
-    }, [])
-
-    if (error) {
-        return <div>Error: {error.message}</div>;
-    } else if (!isLoaded) {
-        return <div>Loading...</div>;
-    } else {
-        return (
-            <section>
-                {users.map(user => (
-                    <table>
-                        <tbody>
-                            <tr>
-                                <td>
-                                    <h3>Login: {user.login}</h3>
-                                </td>
-                                <td>
-                                    <h3>Type: {user.type}</h3>
-                                </td>
-                                <td>
-                                    <img alt="avatar" style={{ width: '70px' }} src={user.avatar_url} />
-                                </td>
-                                <td>
-                                    <Link to={`/user/${user.login}`}>User Details</Link>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                ))}
-            </section>
-        );
-    }
+const UserList = (props) => {
+    
+    return (
+        <table className="userlist">
+            <tr>
+                <th>Username</th>
+                <th>User Type</th>
+                <th>Profile Image</th>
+                <th>More Details</th>
+            </tr>
+            {props.users.map((user) => (
+                <User
+                    login={user.login}
+                    type={user.type}
+                    avatar={user.avatar}
+                    name={user.name}
+                    url={user.url}
+                />
+            ))}
+        </table>
+    )
 }
 
-export default Users;
+export default UserList;

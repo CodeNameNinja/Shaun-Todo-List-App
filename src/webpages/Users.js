@@ -1,13 +1,14 @@
 import React  from 'react';
 
-import './Users.module.css'
 
 import User from '../components/User';
+import './Users.module.css'
 
 const UserList = (props) => {
     
     return (
         <table className="userlist">
+            <thead><h1>Github Users</h1></thead>
             <tr>
                 <th>Username</th>
                 <th>User Type</th>

@@ -2,6 +2,8 @@ import React, { useEffect, useState, useCallback } from 'react';
 import { useParams } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 
+import './UserDetails.css';
+
 const UserDetails = (props) => {
     const [user, setUserData] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
@@ -32,19 +34,19 @@ const UserDetails = (props) => {
     }, []);
 
     return(
-        <div>
-            <img alt="avatar" style={{ width: '70px' }} src={user.avatar_url} /> 
-            <h1>Login: {user.login}</h1>
-            <h1>Name: {user.name}</h1>
-            <h1>Email: {user.email}</h1>
-            <h1>Followers: {user.followers}</h1>
-            <Link to={`/user/${user.login}/followers`}>Followers</Link>
-            <h1>Following: {user.following}</h1>
-            <Link to={`/user/${user.login}/following`}>Following</Link>
-            <h1>Repos: {user.public_repos}</h1>
-            <Link to={`/user/${user.login}/repos`}>Repos</Link>
-            <h1>Gists: {user.public_gists}</h1>
-            <Link to={`/user/${user.login}/gists`}>Gists</Link>
+        <div className="user-details">
+            <div className="user-details__column">
+                <img alt="avatar" style={{ width: '70px' }} src={user.avatar_url} /> 
+                <p>Login: {user.login}</p>
+                <p>Name: {user.name}</p>
+                <p>Email: {user.email}</p>
+            </div>
+            <div className="user-details__column">
+                <p><Link to={`/user/${user.login}/followers`}>Followers:</Link>{user.followers}</p>
+                <p><Link to={`/user/${user.login}/following`}>Following:</Link>{user.following}</p>
+                <p><Link to={`/user/${user.login}/repos`}>Repos:</Link>{user.public_repos}</p>
+                <p><Link to={`/user/${user.login}/gists`}>Gists:</Link>{user.public_gists}</p>
+            </div>
         </div>
     );
 }

@@ -1,22 +1,28 @@
-.userlist {
+table {
     border: 1px solid black;
     display: flex;
     flex-direction: column;
     align-self: center;
     justify-content: space-evenly;
+    margin: 0 auto;
+    width: 60%;
+    border-radius: 4px;
 }
 
-.userlist .tr {
+thead {
+    text-align: center;
+    border: 4px solid black;
+    background-color: #ffffff;
+}
+
+tr {
     width: 100%;
     justify-content: space-evenly;
+    border-top: 2px solid black;
+    background-color: #ffffff;
 }
 
-.userlist .td {
+td, th {
     width: 200px;
-}
-
-.userlist .tr, .userlist .thead, .userlist .td {
-    justify-content: space-evenly;
-    border: 1px solid purple;
     text-align: center;
 }

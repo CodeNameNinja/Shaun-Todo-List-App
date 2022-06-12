@@ -38,18 +38,27 @@ const UserFollowers = (props) => {
     }, []);
 
     return(
-        
-        <table>
-            {followers.map((user) => (
-                <Followers
-                    login={user.login}
-                    type={user.type}
-                    avatar={user.avatar_url}
-                    html={user.html_url}
-                    node={user.node_id}
-                />
-            ))}
-        </table>
+        <div>
+            <h1>Followers</h1>
+            <table>
+                <thead>
+                    <td><p>Username</p></td>
+                    <td><p>User Type</p></td>
+                    <td><p>Profile Image</p></td>
+                    <td><p>URL</p></td>
+                    <td><p>Node</p></td>
+                </thead>
+                {followers.map((user) => (
+                    <Followers
+                        login={user.login}
+                        type={user.type}
+                        avatar={user.avatar_url}
+                        html={user.html_url}
+                        node={user.node_id}
+                    />
+                ))}
+            </table>
+        </div>
     );
 }
 

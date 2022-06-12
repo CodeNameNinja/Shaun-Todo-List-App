@@ -5,7 +5,7 @@ table {
     align-self: center;
     justify-content: space-evenly;
     margin: 0 auto;
-    width: 60%;
+    width: 90%;
     border-radius: 4px;
 }
 
@@ -13,13 +13,19 @@ thead {
     text-align: center;
     border: 1px solid black;
     background-color: #ffffff;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+thead td p{
+    font-size: 24px;
 }
 
 tr {
     width: 100%;
     display: flex;
     justify-content: space-evenly;
-    border-top: 2px solid black;
+    border-top: 1px solid black;
     background-color: #ffffff;
     align-items: center;
     text-align: center;

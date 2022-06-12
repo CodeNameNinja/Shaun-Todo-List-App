@@ -33,17 +33,28 @@ const UserRepos = (props) => {
     }, []);
 
     return(
-        
-        <table>
-            <tr>
-                <td>Repos:</td>
-            </tr>
-            {repos.map((user) => (
-                <Repos
-                    name={user.name}
-                />
-            ))}
-        </table>
+        <div>
+            <h1>Repos</h1>
+            <table>
+                <thead>
+                    <td><p>Name</p></td>
+                    <td><p>Size</p></td>
+                    <td><p>Language</p></td>
+                    <td><p>Stargazers</p></td>
+                    <td><p>Watchers</p></td>
+                </thead>
+                {repos.map((user) => (
+                    <Repos
+                        name={user.name}
+                        url={user.html_url}
+                        size={user.size}
+                        language={user.language}
+                        stargazers={user.stargazers_count}
+                        watchers={user.watchers_count}
+                    />
+                ))}
+            </table>
+        </div>
     );
 }
 

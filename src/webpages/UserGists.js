@@ -24,6 +24,9 @@ const UserGists = (props) => {
             const data = await response.json();
 
             setUserGists(data);
+
+            console.log(`Gists`, gists);
+
         } catch (error) {
             setError(error.message);
         }
@@ -35,17 +38,28 @@ const UserGists = (props) => {
     }, []);
 
     return(
-        
-        <table>
-            <tr>
-                <td>Gists:</td>
-            </tr>
-            {gists.map((user) => (
-                <Gists
-                    url={user.url}
-                />
-            ))}
-        </table>
+        <div>
+            <h1>Gists</h1>
+            <table>
+                <thead>
+                    <td><p>Owner</p></td>
+                    <td><p>URL</p></td>
+                    <td><p>Comments</p></td>
+                    <td><p>Created</p></td>
+                    <td><p>Updated</p></td>
+                </thead>
+                {gists.map((user) => (
+                    <Gists
+                        owner={user.owner.login}
+                        htmlUrl={user.html_url}
+                        comments={user.comments}
+                        createdAt={user.created_at}
+                        updatedAt={user.updated_at}
+
+                    />
+                ))}
+            </table>
+        </div>
     );
 }
 

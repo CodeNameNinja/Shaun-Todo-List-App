@@ -38,16 +38,27 @@ const UserFollowing = (props) => {
 
     return(
         
-        <table>
-            <tr>
-                <td>Following:</td>
-            </tr>
-            {following.map((user) => (
-                <Following
-                    login={user.login}
-                />
-            ))}
-        </table>
+        <div>
+            <h1>Following</h1>
+            <table>
+                <thead>
+                    <td><p>Username</p></td>
+                    <td><p>User Type</p></td>
+                    <td><p>Profile Image</p></td>
+                    <td><p>URL</p></td>
+                    <td><p>Node</p></td>
+                </thead>
+                {following.map((user) => (
+                    <Following
+                        login={user.login}
+                        type={user.type}
+                        avatar={user.avatar_url}
+                        html={user.html_url}
+                        node={user.node_id}
+                    />
+                ))}
+            </table>
+        </div>
     );
 }
 

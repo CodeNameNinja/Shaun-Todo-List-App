@@ -12,7 +12,7 @@ const User = (props) => {
                 <h4>{props.type}</h4>    
             </td>
             <td>
-                <img alt="avatar" style={{ width: '70px' }} src={props.avatar} /> 
+                <img alt="avatar" style={{ width: '50px' }} src={props.avatar} /> 
             </td>
             <td>
                 <Link to={`/user/${props.login}`}>User Details</Link>

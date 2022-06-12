@@ -8,7 +8,7 @@ const UserList = (props) => {
     
     return (
         <table className="userlist">
-            <thead><h1>Github Users</h1></thead>
+            <thead className="userlist__header">Github Users</thead>
             <tr>
                 <th>Username</th>
                 <th>User Type</th>

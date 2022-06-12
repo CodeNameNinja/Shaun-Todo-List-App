@@ -40,12 +40,13 @@ const UserFollowers = (props) => {
     return(
         
         <table>
-            <tr>
-                <td>Followers:</td>
-            </tr>
             {followers.map((user) => (
                 <Followers
                     login={user.login}
+                    type={user.type}
+                    avatar={user.avatar_url}
+                    html={user.html_url}
+                    node={user.node_id}
                 />
             ))}
         </table>
